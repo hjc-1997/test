@@ -1,0 +1,42 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "> 1%",
+            "last 5 versions",
+            "ie >= 8"
+          ],
+          "node": "current"
+        },
+        "modules": false
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/typescript"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-transform-modules-commonjs",
+    "@babel/plugin-transform-react-jsx-source",
+    [
+      "babel-plugin-react-css-modules",
+      {
+        "context": "./",
+        "generateScopedName": "[name]__[local]___[hash:base64:5]",
+        "autoResolveMultipleImports": true,
+        "webpackHotModuleReloading": true,
+        "exclude": "node_modules",
+        "handleMissingStyleName": "warn",
+        "filetypes": {
+          ".scss": {
+            "syntax": "postcss-scss"
+
+          }
+        }
+      }
+    ]
+  ]
+}
